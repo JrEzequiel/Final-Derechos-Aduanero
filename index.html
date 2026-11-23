@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="charter">
+  <title>Examen Final — Derechos Aduaneros | Tecnológico de Antioquia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Charter) */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      /* Ink */
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      /* Rules */
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      /* Accents */
+      --primary: #14213d;
+      --on-primary: #f7f4ec;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --tertiary: #8a6a35;
+      --error: #9b2c2c;
+      --on-error: #f7f4ec;
+
+      /* Data series */
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Fonts */
+      --font-headline: 'Libre Caslon Text', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-label: 'Inter', system-ui, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+      /* Shape (Charter: 2px squared corners) */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --brass-rule: 2px solid var(--outline);
+      --brass-band-border: 3px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --brass-stamp-border: 1px solid var(--outline);
+      --navy-outline: 1px solid var(--primary);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+
+      /* Derived surface & contrast mixes (no inline colors in body) */
+      --title-lede: color-mix(in srgb, var(--on-primary) 80%, var(--primary));
+      --title-brass: color-mix(in srgb, var(--outline) 78%, var(--on-primary));
+      --title-rule: color-mix(in srgb, var(--outline) 45%, var(--primary));
+      --primary-hover: color-mix(in srgb, var(--primary) 86%, var(--on-surface));
+      --positive-bg: color-mix(in srgb, var(--secondary) 10%, var(--surface-container-low));
+      --error-bg: color-mix(in srgb, var(--error) 9%, var(--surface-container-low));
+      --warning-bg: color-mix(in srgb, var(--tertiary) 12%, var(--surface-container-low));
+      --focus-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 28%, transparent);
+      --selected-shadow: inset 3px 0 0 var(--primary);
+
+      /* Semantic */
+      --positive: #2d5a4a;
+      --warning: #8a6a35;
+      --focus: #14213d;
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.75rem;
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { overflow-x: clip; margin: 0; padding: 0; }
+    header { position: static !important; }
+
+    body {
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .hidden { display: none !important; }
+
+    /* Institutional Title Band */
+    .title-band {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-bottom: var(--brass-band-border);
+      padding: var(--space-lg) var(--space-lg);
+    }
+
+    .title-band-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .title-kicker-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-md);
+      border-bottom: 1px solid var(--title-rule);
+    }
+
+    .kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--title-brass);
+    }
+
+    .format-stamp {
+      font-family: var(--font-mono);
+      font-size: var(--label-size);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--on-primary);
+      border: 1px solid var(--title-brass);
+      border-radius: var(--rounded);
+      padding: var(--space-xs) var(--space-sm);
+    }
+
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      color: var(--on-primary);
+      margin: 0 0 var(--space-xs);
+    }
+
+    .title-band .lede {
+      font-size: var(--body-size);
+      color: var(--title-lede);
+      margin: 0 0 var(--space-md);
+      max-width: 68ch;
+    }
+
+    .meta-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--title-rule);
+    }
+
+    .meta-cell-label {
+      display: block;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--title-brass);
+      margin-bottom: var(--space-xs);
+    }
+
+    .meta-cell-value {
+      display: block;
+      font-size: var(--body-size);
+      font-weight: 500;
+      color: var(--on-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Main Workspace Grid */
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1160px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Charter Figure Card */
+    .figure-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+
+    .section-head {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-sm);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-md);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+    }
+
+    .section-head h2 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      line-height: 1.15;
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    .label-caps {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+    }
+
+    .stamp-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      border: var(--brass-stamp-border);
+      background: transparent;
+      color: var(--tertiary);
+      border-radius: var(--rounded);
+      padding: var(--space-xs) var(--space-sm);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .stamp-tag--positive {
+      border-color: var(--secondary);
+      color: var(--secondary);
+      background: var(--positive-bg);
+    }
+
+    .stamp-tag--error {
+      border-color: var(--error);
+      color: var(--error);
+      background: var(--error-bg);
+    }
+
+    .stamp-tag--neutral {
+      border-color: var(--outline-variant);
+      color: var(--on-surface-variant);
+      background: var(--surface-container);
+    }
+
+    /* Setup Phase Layout (Asymmetric) */
+    .setup-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .prose-block {
+      max-width: 65ch;
+    }
+
+    .prose-block p {
+      margin: 0 0 var(--space-md);
+      color: var(--on-surface);
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-md) 0 var(--space-lg);
+      font-size: var(--body-size);
+    }
+
+    .spec-table th,
+    .spec-table td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--hairline);
+      text-align: left;
+    }
+
+    .spec-table thead th {
+      background: var(--surface-container-high);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--on-surface);
+    }
+
+    .spec-table td.num,
+    .spec-table th.num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-family: var(--font-mono);
+    }
+
+    .spec-table tr.total-row td {
+      border-top: var(--brass-rule);
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Form Controls */
+    .form-field {
+      margin-bottom: var(--space-md);
+    }
+
+    .form-field label {
+      display: block;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--on-surface);
+      margin-bottom: var(--space-xs);
+    }
+
+    .form-field input {
+      width: 100%;
+      min-height: 2.75rem;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      transition: border-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .form-field input:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+      box-shadow: var(--focus-shadow);
+    }
+
+    .inline-feedback {
+      padding: var(--space-sm) var(--space-md);
+      border-left: 3px solid var(--error);
+      background: var(--error-bg);
+      color: var(--error);
+      font-size: var(--body-size);
+      margin-bottom: var(--space-md);
+    }
+
+    .inline-feedback--warn {
+      border-left-color: var(--tertiary);
+      background: var(--warning-bg);
+      color: var(--on-surface);
+    }
+
+    /* Buttons (Charter) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 2.75rem;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded);
+      font-family: var(--font-label);
+      font-size: var(--body-size);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+      box-shadow: var(--focus-shadow);
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      border: 1px solid var(--primary);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: var(--navy-outline);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--primary-container);
+    }
+
+    .btn-subtle {
+      background: var(--surface-container);
+      color: var(--on-surface);
+      border: var(--hairline);
+    }
+
+    .btn-subtle:hover:not(:disabled) {
+      background: var(--surface-container-high);
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    /* Exam Workspace Layout */
+    .exam-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .question-wrapper {
+      container-type: inline-size;
+    }
+
+    .question-header-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-md);
+      border-bottom: var(--hairline);
+      margin-bottom: var(--space-md);
+    }
+
+    .question-counter {
+      font-family: var(--font-mono);
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .case-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      color: var(--primary);
+      margin: 0 0 var(--space-sm);
+    }
+
+    .case-narrative {
+      background: var(--background);
+      border-left: 3px solid var(--outline);
+      padding: var(--space-md);
+      margin-bottom: var(--space-lg);
+      max-width: 68ch;
+      color: var(--on-surface);
+    }
+
+    .question-prompt {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      line-height: 1.3;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-lg);
+      max-width: 62ch;
+    }
+
+    .options-grid {
+      display: grid;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      width: 100%;
+      min-height: 3rem;
+      padding: var(--space-md);
+      text-align: left;
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .option-btn:hover {
+      background: var(--surface-container);
+    }
+
+    .option-btn:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+      box-shadow: var(--focus-shadow);
+    }
+
+    .option-btn.is-selected {
+      background: var(--primary-container);
+      box-shadow: var(--selected-shadow);
+    }
+
+    .option-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      background: var(--background);
+      font-family: var(--font-mono);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--primary);
+      margin-top: 1px;
+    }
+
+    .option-btn.is-selected .option-key {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .option-text {
+      flex: 1;
+      line-height: 1.45;
+    }
+
+    .exam-actions-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-md);
+      border-top: var(--hairline);
+    }
+
+    .nav-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Sidebar Panel */
+    .sidebar-stack {
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .timer-display {
+      font-family: var(--font-mono);
+      font-size: var(--display-size);
+      font-weight: 500;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--primary);
+      line-height: 1.1;
+      margin: var(--space-xs) 0;
+    }
+
+    .timer-display--warning {
+      color: var(--tertiary);
+    }
+
+    .timer-display--critical {
+      color: var(--error);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 0.375rem;
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+      margin: var(--space-sm) 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    .q-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+    }
+
+    .q-node {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.75rem;
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-size: var(--label-size);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .q-node:hover {
+      background: var(--surface-container);
+    }
+
+    .q-node:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .q-node.is-answered {
+      background: var(--primary-container);
+      color: var(--primary);
+    }
+
+    .q-node.is-current {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .q-node.is-flagged::after {
+      content: "";
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 6px;
+      height: 6px;
+      background: var(--tertiary);
+      border-radius: var(--rounded);
+    }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .legend-swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--rounded);
+      border: var(--hairline);
+      background: var(--background);
+    }
+
+    .legend-swatch--answered { background: var(--primary-container); }
+    .legend-swatch--current { background: var(--primary); border-color: var(--primary); }
+    .legend-swatch--flag { background: var(--tertiary); border-color: var(--tertiary); }
+
+    /* Results View */
+    .figures-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .figure-value {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+      margin: var(--space-xs) 0;
+    }
+
+    .figure-delta {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+    }
+
+    .figure-delta--positive { color: var(--secondary); }
+    .figure-delta--error { color: var(--error); }
+
+    .breakdown-bar-row {
+      display: grid;
+      grid-template-columns: minmax(160px, 240px) minmax(0, 1fr) auto;
+      gap: var(--space-md);
+      align-items: center;
+      padding: var(--space-sm) 0;
+      border-bottom: var(--hairline);
+    }
+
+    .bar-track {
+      height: 0.625rem;
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--data-1);
+    }
+
+    .bar-fill--secondary {
+      background: var(--data-3);
+    }
+
+    .filter-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .filter-btn {
+      min-height: 2.75rem;
+      padding: var(--space-xs) var(--space-md);
+      background: transparent;
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+      cursor: pointer;
+    }
+
+    .filter-btn:hover {
+      background: var(--surface-container);
+    }
+
+    .filter-btn.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .review-list {
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .review-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+
+    .review-card--correct {
+      border-top-color: var(--secondary);
+    }
+
+    .review-card--incorrect {
+      border-top-color: var(--error);
+    }
+
+    .review-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    .answer-comparison {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: var(--space-md);
+      margin: var(--space-md) 0;
+      padding: var(--space-md);
+      background: var(--background);
+      border: var(--hairline);
+    }
+
+    .legal-foundation {
+      border-left: 3px solid var(--outline);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--surface-container-low);
+      font-size: var(--body-size);
+      max-width: 72ch;
+    }
+
+    .legal-citation {
+      font-family: var(--font-mono);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--primary);
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    .actions-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: var(--brass-rule);
+    }
+
+    .footer-note {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-md);
+      border-top: var(--hairline);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    @container (max-width: 520px) {
+      .exam-actions-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav-pair {
+        width: 100%;
+      }
+      .nav-pair .btn {
+        flex: 1;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .setup-layout,
+      .exam-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-md);
+      }
+      .title-band {
+        padding: var(--space-md);
+      }
+      .figure-card,
+      .review-card {
+        padding: var(--space-md);
+      }
+      .breakdown-bar-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+      }
+    }
+
+    @media print {
+      body { background: var(--surface-container-low); }
+      .title-band {
+        background: var(--primary);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .no-print { display: none !important; }
+      .review-card { break-inside: avoid; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="title-band">
+    <div class="title-band-inner">
+      <div class="title-kicker-row">
+        <span class="kicker">Tecnológico de Antioquia · Institución Universitaria</span>
+        <span class="format-stamp">FORMATO FO-DOC-115 · VERSIÓN 01</span>
+      </div>
+      <h1>Examen Final de Derechos Aduaneros</h1>
+      <p class="lede">Evaluación de régimen sancionatorio aduanero, medidas cautelares, decomiso, allanamiento y legalización conforme a la Ley 2586 de 2026 y el Decreto 1165 de 2019.</p>
+      <div class="meta-strip">
+        <div>
+          <span class="meta-cell-label">Programa</span>
+          <span class="meta-cell-value">Negocios Internacionales</span>
+        </div>
+        <div>
+          <span class="meta-cell-label">Asignatura</span>
+          <span class="meta-cell-value">Derechos Aduaneros</span>
+        </div>
+        <div>
+          <span class="meta-cell-label">Docente</span>
+          <span class="meta-cell-value">Ezequiel Rentería Mosquera</span>
+        </div>
+        <div>
+          <span class="meta-cell-label">Escala y Ponderación</span>
+          <span class="meta-cell-value">0.0 – 5.0 · 20% del Curso</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-grid">
+    <!-- FASE 1: REGISTRO E INSTRUCCIONES -->
+    <section id="setupScreen" aria-labelledby="setupHeading">
+      <div class="setup-layout">
+        <div class="prose-block">
+          <div class="section-head">
+            <h2 id="setupHeading">Propósito y estructura de la prueba</h2>
+            <span class="stamp-tag">10 Preguntas · 60 Min</span>
+          </div>
+          <p>Esta evaluación mide la capacidad para identificar, clasificar y resolver casos prácticos sobre infracciones aduaneras, medidas cautelares, causales de aprehensión, decomiso directo, allanamientos y sanciones bajo la normativa vigente.</p>
+
+          <table class="spec-table" aria-label="Estructura de evaluación">
+            <thead>
+              <tr>
+                <th>Sección</th>
+                <th>Modalidad</th>
+                <th class="num">Ítems</th>
+                <th class="num">Puntaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sección I</td>
+                <td>Casos prácticos (Opción múltiple)</td>
+                <td class="num">6</td>
+                <td class="num">3.0</td>
+              </tr>
+              <tr>
+                <td>Sección II</td>
+                <td>Análisis de legalidad (Falso / Verdadero)</td>
+                <td class="num">4</td>
+                <td class="num">2.0</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="2">Calificación total (Aporte 20% = Nota × 0.20)</td>
+                <td class="num">10</td>
+                <td class="num">5.0</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Al finalizar o enviar el examen obtendrá la nota definitiva sobre <strong>5.0</strong>, su aporte ponderado al <strong>20%</strong> (máximo 1.00 punto) y la retroalimentación normativa detallada artículo por artículo.</p>
+        </div>
+
+        <div class="figure-card">
+          <div class="section-head">
+            <h2>Registro del estudiante</h2>
+            <span class="label-caps">Datos obligatorios</span>
+          </div>
+
+          <div id="setupError" class="inline-feedback hidden" role="alert"></div>
+
+          <div class="form-field">
+            <label for="studentName">Nombre completo del estudiante</label>
+            <input type="text" id="studentName" placeholder="Ej. Laura Valentina Restrepo Mejía" autocomplete="name">
+          </div>
+
+          <div class="form-field">
+            <label for="studentId">Documento de identidad (C.C. / T.I.)</label>
+            <input type="text" id="studentId" placeholder="Ej. 1036942815" inputmode="numeric" autocomplete="off">
+          </div>
+
+          <div class="form-field">
+            <label for="studentGroup">Grupo y jornada</label>
+            <input type="text" id="studentGroup" value="PRECEMIG15083 · Nocturna" autocomplete="off">
+          </div>
+
+          <button type="button" id="startExamBtn" class="btn btn-primary btn-full" onclick="startExam()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Iniciar evaluación final
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FASE 2: EXAMEN INTERACTIVO -->
+    <section id="examScreen" class="hidden" aria-label="Desarrollo del examen">
+      <div class="exam-layout">
+        <div class="question-wrapper">
+          <div class="figure-card">
+            <div class="question-header-row">
+              <span id="qCounterLabel" class="question-counter">PREGUNTA 1 DE 10</span>
+              <div style="display:flex; gap: var(--space-sm); flex-wrap:wrap; align-items:center;">
+                <span id="qSectionStamp" class="stamp-tag">Sección I · Caso Práctico</span>
+                <button type="button" id="flagBtn" class="btn btn-subtle" onclick="toggleFlagCurrent()" style="min-height: 2.25rem; padding: var(--space-xs) var(--space-sm); font-size: var(--label-size);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                    <line x1="4" y1="22" x2="4" y2="15"></line>
+                  </svg>
+                  <span id="flagBtnText">Marcar para revisar</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="questionBody"></div>
+
+            <div id="submitNotice" class="inline-feedback inline-feedback--warn hidden" role="status"></div>
+
+            <div class="exam-actions-bar">
+              <div class="nav-pair">
+                <button type="button" id="prevBtn" class="btn btn-secondary" onclick="navigateQuestion(-1)">← Anterior</button>
+                <button type="button" id="nextBtn" class="btn btn-secondary" onclick="navigateQuestion(1)">Siguiente →</button>
+              </div>
+              <button type="button" id="submitExamBtn" class="btn btn-primary" onclick="handleSubmitClick(this)">
+                Enviar y calificar examen
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel lateral de control -->
+        <aside class="sidebar-stack" aria-label="Control de examen">
+          <div class="figure-card">
+            <span class="label-caps">Tiempo restante</span>
+            <div id="timerDisplay" class="timer-display">60:00</div>
+            <span class="label-caps" id="studentSummaryMeta">Estudiante</span>
+            <div class="progress-track" aria-hidden="true">
+              <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size: var(--label-size); color: var(--on-surface-variant);">
+              <span id="answeredCountLabel">0 de 10 respondidas</span>
+              <span id="progressPctLabel">0%</span>
+            </div>
+          </div>
+
+          <div class="figure-card">
+            <span class="label-caps">Selector de preguntas</span>
+            <div id="questionSelectorGrid" class="q-selector-grid" role="navigation" aria-label="Ir a pregunta"></div>
+            <div class="legend-row">
+              <span class="legend-item"><span class="legend-swatch legend-swatch--current"></span>Actual</span>
+              <span class="legend-item"><span class="legend-swatch legend-swatch--answered"></span>Respondida</span>
+              <span class="legend-item"><span class="legend-swatch legend-swatch--flag"></span>Marcada</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FASE 3: RESULTADOS Y RETROALIMENTACIÓN -->
+    <section id="resultScreen" class="hidden" aria-labelledby="resultsHeading">
+      <div class="section-head">
+        <div>
+          <span class="label-caps" id="resultStudentLine">Acta de evaluación</span>
+          <h2 id="resultsHeading">Resultados y fundamento normativo</h2>
+        </div>
+        <span id="resultVerdictStamp" class="stamp-tag">Aprobado</span>
+      </div>
+
+      <!-- Cifras principales (Charter Statement Figures) -->
+      <div class="figures-grid">
+        <div class="figure-card">
+          <span class="label-caps">Nota definitiva (0.0 – 5.0)</span>
+          <div id="finalGradeValue" class="figure-value">0.0</div>
+          <div id="finalGradeDelta" class="figure-delta">Escala institucional</div>
+        </div>
+        <div class="figure-card">
+          <span class="label-caps">Aporte al 20% del curso</span>
+          <div id="weightedScoreValue" class="figure-value">0.00</div>
+          <div class="figure-delta">Máximo posible: 1.00 punto</div>
+        </div>
+        <div class="figure-card">
+          <span class="label-caps">Aciertos obtenidos</span>
+          <div id="hitsValue" class="figure-value">0 / 10</div>
+          <div id="accuracyDelta" class="figure-delta">0% de efectividad</div>
+        </div>
+        <div class="figure-card">
+          <span class="label-caps">Tiempo empleado</span>
+          <div id="timeSpentValue" class="figure-value">00:00</div>
+          <div id="finishReasonLabel" class="figure-delta">Envío voluntario</div>
+        </div>
+      </div>
+
+      <!-- Desglose por sección -->
+      <div class="figure-card" style="margin-bottom: var(--space-lg);">
+        <div class="section-head">
+          <h2>Desempeño por sección del examen</h2>
+          <span class="label-caps">Desglose analítico</span>
+        </div>
+        <div class="breakdown-bar-row">
+          <div>
+            <strong>Sección I · Casos Prácticos</strong>
+            <div class="label-caps">Preguntas 1 a 6 (Ley 2586/2026)</div>
+          </div>
+          <div class="bar-track" aria-hidden="true">
+            <div id="sec1Bar" class="bar-fill" style="width: 0%;"></div>
+          </div>
+          <span id="sec1Text" style="font-family: var(--font-mono); font-weight: 600;">0 / 6</span>
+        </div>
+        <div class="breakdown-bar-row" style="border-bottom: none;">
+          <div>
+            <strong>Sección II · Análisis de Legalidad</strong>
+            <div class="label-caps">Preguntas 7 a 10 (Falso / Verdadero)</div>
+          </div>
+          <div class="bar-track" aria-hidden="true">
+            <div id="sec2Bar" class="bar-fill bar-fill--secondary" style="width: 0%;"></div>
+          </div>
+          <span id="sec2Text" style="font-family: var(--font-mono); font-weight: 600;">0 / 4</span>
+        </div>
+      </div>
+
+      <!-- Toolbar de filtro y lista de revisión -->
+      <div class="filter-toolbar no-print">
+        <div class="filter-group" role="group" aria-label="Filtrar preguntas">
+          <button type="button" id="filterAllBtn" class="filter-btn is-active" onclick="setReviewFilter('all')">Todas (10)</button>
+          <button type="button" id="filterCorrectBtn" class="filter-btn" onclick="setReviewFilter('correct')">Correctas (0)</button>
+          <button type="button" id="filterIncorrectBtn" class="filter-btn" onclick="setReviewFilter('incorrect')">Incorrectas (0)</button>
+        </div>
+      </div>
+
+      <div id="reviewContainer" class="review-list"></div>
+
+      <div class="actions-footer no-print">
+        <button type="button" class="btn btn-primary" onclick="downloadReport()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Descargar acta de examen (.txt)
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="window.print()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          Imprimir / Guardar PDF
+        </button>
+        <button type="button" id="resetExamBtn" class="btn btn-subtle" onclick="resetExam(this)">
+          Presentar nuevo intento
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      <span>Fuente normativa: Ley 2586 de 2026 y Decreto 1165 de 2019 · Examen Final Derechos Aduaneros (FO-DOC-115).</span>
+      <span>Tecnológico de Antioquia · Programa de Negocios Internacionales.</span>
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    const TOTAL_SECONDS = 3600; // 60 minutos
+
+    // Banco exacto de 10 preguntas.
+    // Opciones de preguntas 1 a 6 completamente permutadas:
+    // Q1 -> C (2), Q2 -> D (3), Q3 -> A (0), Q4 -> D (3), Q5 -> C (2), Q6 -> A (0)
+    const QUESTIONS = [
+      {
+        id: 1,
+        section: `Sección I`,
+        type: `mc`,
+        topic: `Medidas cautelares`,
+        title: `1. El Control en Carretera a la Empresa Courier`,
+        context: `La Policía Fiscal y Aduanera (POLFA) detiene en carretera un vehículo de una empresa de tráfico postal y envíos urgentes. Al verificar los paquetes, detecta mercancía extranjera con inconsistencias documentales que impiden verificar su legal introducción.`,
+        prompt: `De acuerdo con los artículos 7 y 9 de la Ley 2586 de 2026, ¿cuál es la medida cautelar inmediata y el término otorgado al interesado para presentar los documentos soporte antes de declarar la aprehensión?`,
+        options: [
+          `Retención temporal preventiva por un término máximo de tres (3) días calendario.`,
+          `Aprehensión e ingreso inmediato al recinto de la DIAN mediante decomiso directo sin derecho a descargos.`,
+          `Inmovilización por un término de cinco (5) días hábiles para que el usuario presente la documentación que soporte la legal introducción, so pena de su aprehensión.`,
+          `Custodia de la mercancía en poder del transportador por un término improrrogable de quince (15) días hábiles.`
+        ],
+        correctIndex: 2, // C
+        citation: `Artículos 7 y 9 — Ley 2586 de 2026`,
+        explanation: `La medida cautelar aplicable cuando existen inconsistencias documentales que impiden verificar la legal introducción de la mercancía es la inmovilización por un término de cinco (5) días hábiles. Durante este plazo el usuario debe allegar los documentos soporte que acrediten la legal introducción; de no hacerlo, la autoridad aduanera procede con la aprehensión.`
+      },
+      {
+        id: 2,
+        section: `Sección I`,
+        type: `mc`,
+        topic: `Imposibilidad de aprehender`,
+        title: `2. La Maquinaria Destruida e Imposibilidad de Aprehender`,
+        context: `Durante una auditoría de control posterior, la DIAN detecta que la empresa Aceros de Colombia S.A.S. omitió el cumplimiento de una restricción legal en la importación temporal de una grúa industrial, configurando una causal de aprehensión. Al ser requerida para poner la máquina a disposición de la aduana, la empresa demuestra con peritajes oficiales que la maquinaria sufrió un accidente y se destruyó totalmente.`,
+        prompt: `De acuerdo con el artículo 29 de la Ley 2586 de 2026, ¿cuál es la sanción aplicable ante la imposibilidad material de aprehender la mercancía?`,
+        options: [
+          `Exoneración total de responsabilidad por configurarse la causal de fuerza mayor o caso fortuito.`,
+          `Multa equivalente al 200% del valor en aduanas de la mercancía (sanción del anterior Decreto 920 de 2023).`,
+          `Sanción fija de 400 UVT por incumplimiento de la modalidad de importación temporal.`,
+          `Multa equivalente al 100% del valor en aduanas de la mercancía (o de su avalúo) y la cancelación automática de la autorización de levante.`
+        ],
+        correctIndex: 3, // D
+        citation: `Artículo 29 — Ley 2586 de 2026`,
+        explanation: `El artículo 29 de la Ley 2586 de 2026 sustituyó la sanción del 200% prevista en el régimen anterior y estableció que, cuando no sea posible aprehender materialmente la mercancía (incluso por destrucción), procede una multa equivalente al 100% del valor en aduanas o de su avalúo, acompañada de la cancelación automática de la autorización de levante.`
+      },
+      {
+        id: 3,
+        section: `Sección I`,
+        type: `mc`,
+        topic: `Corrección voluntaria`,
+        title: `3. Inexactitud en el Formulario 500 y Corrección Voluntaria`,
+        context: `Seis meses después de nacionalizar una carga, el auditor de un importador descubre que se declaró un valor FOB inferior al real por omitir el costo de unas comisiones de venta, lo cual generó un menor pago de tributos aduaneros. El importador decide presentar voluntariamente una Declaración de Corrección antes de cualquier intervención de la DIAN.`,
+        prompt: `Según el artículo 15 (numeral 15.2.2.6) de la Ley 2586 de 2026, ¿qué sanción debe autoliquidarse?`,
+        options: [
+          `Multa equivalente al 10% del valor de los tributos aduaneros dejados de cancelar por cada declaración.`,
+          `Multa del 50% de la diferencia del valor FOB declarado de la mercancía.`,
+          `Multa equivalente al 100% del valor de los tributos aduaneros dejados de pagar.`,
+          `Ninguna sanción, por haber corregido de forma voluntaria dentro del año siguiente al levante.`
+        ],
+        correctIndex: 0, // A
+        citation: `Artículo 15, numeral 15.2.2.6 — Ley 2586 de 2026`,
+        explanation: `Al presentarse una inexactitud en la declaración de importación que derive en un menor pago de tributos aduaneros y realizarse la corrección voluntaria antes de la intervención de la autoridad aduanera, el numeral 15.2.2.6 del artículo 15 de la Ley 2586 de 2026 dispone autoliquidar una multa equivalente al 10% del valor de los tributos aduaneros dejados de cancelar por cada declaración.`
+      },
+      {
+        id: 4,
+        section: `Sección I`,
+        type: `mc`,
+        topic: `Allanamiento aduanero`,
+        title: `4. El Allanamiento en la Diligencia de Inspección`,
+        context: `En inspección aduanera, el funcionario detecta que la Agencia de Aduanas no cuenta con un documento soporte obligatorio al momento de la aceptación de la declaración. La agencia decide allanarse por escrito reconociendo la infracción antes de que se le notifique el Requerimiento Especial Aduanero (REA).`,
+        prompt: `De acuerdo con el artículo 19 (numeral 2) de la Ley 2586 de 2026, ¿a qué porcentaje de reducción de la multa tiene derecho?`,
+        options: [
+          `Reducción al 0% (exoneración total de la multa).`,
+          `Reducción de la sanción al 40% del valor establecido.`,
+          `Reducción de la sanción al 60% del valor establecido.`,
+          `Reducción de la sanción al 20% del valor establecido.`
+        ],
+        correctIndex: 3, // D
+        citation: `Artículo 19, numeral 2 — Ley 2586 de 2026`,
+        explanation: `Cuando el infractor reconoce por escrito la comisión de la infracción y se allana voluntariamente antes de la notificación del Requerimiento Especial Aduanero (REA), el artículo 19 numeral 2 de la Ley 2586 de 2026 otorga el beneficio de reducción de la sanción al 20% de su valor establecido.`
+      },
+      {
+        id: 5,
+        section: `Sección I`,
+        type: `mc`,
+        topic: `Declaración anticipada`,
+        title: `5. La Declaración Anticipada Obligatoria Extemporánea`,
+        context: `Un importador obligado a presentar declaración anticipada la radica por fuera del plazo normativo. La mercancía causa tributos aduaneros.`,
+        prompt: `De acuerdo con el artículo 15 (numeral 15.2.2.1) de la Ley 2586 de 2026, ¿cuál es la sanción aplicable para obtener el levante?`,
+        options: [
+          `Multa del 1% del valor FOB sin que supere las 300 UVT por documento de transporte (sanción del anterior Decreto 920 de 2023).`,
+          `Rescate obligatorio equivalente al 50% del valor en aduana mediante declaración de legalización.`,
+          `Multa equivalente al 10% del valor de los tributos aduaneros dejados de cancelar, con un tope máximo de 200 UVT por operación.`,
+          `Multa fija de 165 UVT sin importar la cuantía del embarque.`
+        ],
+        correctIndex: 2, // C
+        citation: `Artículo 15, numeral 15.2.2.1 — Ley 2586 de 2026`,
+        explanation: `Conforme al numeral 15.2.2.1 del artículo 15 de la Ley 2586 de 2026, la presentación extemporánea de la declaración anticipada obligatoria cuando la mercancía causa tributos aduaneros se sanciona con multa equivalente al 10% del valor de los tributos dejados de cancelar oportunamente, con un tope máximo de 200 UVT por operación.`
+      },
+      {
+        id: 6,
+        section: `Sección I`,
+        type: `mc`,
+        topic: `Cierre de establecimiento`,
+        title: `6. Cierre del Establecimiento de Comercio por Mercancía no Amparada`,
+        context: `En control posterior a un local comercial, la DIAN encuentra mercancías de procedencia extranjera que no cuentan con declaración de importación ni factura de nacionalización. La autoridad ejecuta la aprehensión (Art. 26).`,
+        prompt: `Además de la aprehensión, ¿qué medida o sanción procede sobre el establecimiento según el régimen comercial aduanero?`,
+        options: [
+          `Cierre del establecimiento de comercio por el término de 5 a 10 días calendario.`,
+          `Amonestación escrita sin cierre de local.`,
+          `Cancelación inmediata del RUT del comerciante por 3 años.`,
+          `Multa sustitutiva de 1.000 UVT sin cierre del establecimiento.`
+        ],
+        correctIndex: 0, // A
+        citation: `Artículo 26 y régimen sancionatorio comercial aduanero — Ley 2586 de 2026`,
+        explanation: `Cuando en control posterior se hallan mercancías extranjeras no amparadas en declaración de importación o factura de nacionalización, además de la aprehensión prevista en el artículo 26, el régimen comercial aduanero impone como medida accesoria el cierre del establecimiento de comercio por un término de 5 a 10 días calendario.`
+      },
+      {
+        id: 7,
+        section: `Sección II`,
+        type: `tf`,
+        topic: `Decomiso directo`,
+        title: `7. Decomiso Directo en Licores Extranjeros (400 UVT)`,
+        context: `Análisis de legalidad sobre cuantías mínimas y bienes sensibles en procedimientos de decomiso directo.`,
+        prompt: `La DIAN aprehende un lote de licores extranjeros avaluado en 400 UVT que no cuenta con documentos soporte. El funcionario afirma que NO procede el Decomiso Directo porque el valor de la carga no supera las 500 UVT exigidas en la norma.`,
+        options: [
+          `Verdadero`,
+          `Falso`
+        ],
+        correctIndex: 1, // Falso
+        citation: `Artículo 48 — Ley 2586 de 2026`,
+        explanation: `La afirmación es FALSA. De conformidad con el artículo 48 de la Ley 2586 de 2026, para mercancías sensibles como licores, cigarrillos y demás bienes sujetos a control especial procede el decomiso directo de manera automática, sin que aplique el umbral general de las 500 UVT.`
+      },
+      {
+        id: 8,
+        section: `Sección II`,
+        type: `tf`,
+        topic: `Medida de inmovilización`,
+        title: `8. Alcance de la Medida Cautelar de Inmovilización`,
+        context: `Análisis de legalidad sobre la naturaleza, lugar de ejecución y término probatorio de la medida cautelar de inmovilización.`,
+        prompt: `La medida cautelar de Inmovilización consiste en sustraer de libre circulación una mercancía o carga dejándola a disposición aduanera en el lugar donde se encuentra sin movilizarla, por un plazo máximo de 5 días hábiles para acreditar la documentación soporte.`,
+        options: [
+          `Verdadero`,
+          `Falso`
+        ],
+        correctIndex: 0, // Verdadero
+        citation: `Artículos 7 y 9 — Ley 2586 de 2026`,
+        explanation: `La afirmación es VERDADERA. Según los artículos 7 y 9 de la Ley 2586 de 2026, la inmovilización sustrae temporalmente la mercancía de libre circulación en el lugar donde se halla, dejándola a disposición de la autoridad aduanera hasta por 5 días hábiles mientras el interesado acredita los documentos soporte de su legal introducción.`
+      },
+      {
+        id: 9,
+        section: `Sección II`,
+        type: `tf`,
+        topic: `Doble facturación`,
+        title: `9. Factura Alterada o Doble Facturación en Inspección`,
+        context: `Análisis de legalidad sobre conductas fraudulentas de subfacturación detectadas durante la diligencia de inspección aduanera.`,
+        prompt: `Si en la inspección aduanera el funcionario descubre una factura alterada o doble facturación para simular un precio menor y evadir el arancel, la DIAN solo profiere una Liquidación Oficial de Revisión de Valor sin aprehender la carga.`,
+        options: [
+          `Verdadero`,
+          `Falso`
+        ],
+        correctIndex: 1, // Falso
+        citation: `Artículo 26, numeral 4 y Artículo 15, numeral 15.26.1.9 — Ley 2586 de 2026`,
+        explanation: `La afirmación es FALSA. El uso de factura alterada o doble facturación para simular un precio inferior no se limita a una Liquidación Oficial de Revisión de Valor; constituye causal expresa de aprehensión inmediata de la mercancía bajo el artículo 26 numeral 4 y configura la infracción gravísima del artículo 15 numeral 15.26.1.9 de la Ley 2586 de 2026.`
+      },
+      {
+        id: 10,
+        section: `Sección II`,
+        type: `tf`,
+        topic: `Legalización sin rescate`,
+        title: `10. Legalización Voluntaria por Error de Descripción`,
+        context: `Análisis de legalidad sobre la subsanación voluntaria de errores descriptivos posteriores a la autorización de levante.`,
+        prompt: `Si dentro de los 30 días calendario siguientes al levante el importador descubre un error en la descripción que NO genera menor pago de tributos, NO viola restricciones ni ampara mercancía diferente, puede presentar Declaración de Legalización voluntaria SIN pago de rescate.`,
+        options: [
+          `Verdadero`,
+          `Falso`
+        ],
+        correctIndex: 0, // Verdadero
+        citation: `Artículo 293, numeral 3 — Decreto 1165 de 2019`,
+        explanation: `La afirmación es VERDADERA. El artículo 293 numeral 3 del Decreto 1165 de 2019 permite presentar Declaración de Legalización voluntaria sin pago de rescate dentro de los treinta (30) días calendario siguientes al levante cuando se trate de errores u omisiones en la descripción que no impliquen menor pago de tributos, violación de restricciones ni mercancía diferente.`
+      }
+    ];
+
+    const LETTERS = [`A`, `B`, `C`, `D`];
+
+    let appState = {
+      phase: `setup`, // 'setup' | 'exam' | 'results'
+      student: {
+        name: ``,
+        id: ``,
+        group: `PRECEMIG15083 · Nocturna`
+      },
+      currentIndex: 0,
+      answers: new Array(QUESTIONS.length).fill(null),
+      flagged: new Array(QUESTIONS.length).fill(false),
+      secondsLeft: TOTAL_SECONDS,
+      elapsedSeconds: 0,
+      finishReason: `Envío voluntario`,
+      reviewFilter: `all`
+    };
+
+    let timerInterval = null;
+    let lastSaveAt = 0;
+
+    async function persistState(force) {
+      if (!window.notebookAppApi || typeof window.notebookAppApi.setAppState !== `function`) return;
+      const now = Date.now();
+      if (!force && now - lastSaveAt < 5000) return;
+      lastSaveAt = now;
+      try {
+        await window.notebookAppApi.setAppState(appState);
+      } catch (err) {
+        // Silent fallback in restricted environments
+      }
+    }
+
+    function showPhase(phaseName) {
+      const setupEl = document.getElementById(`setupScreen`);
+      const examEl = document.getElementById(`examScreen`);
+      const resultEl = document.getElementById(`resultScreen`);
+      if (setupEl) setupEl.classList.toggle(`hidden`, phaseName !== `setup`);
+      if (examEl) examEl.classList.toggle(`hidden`, phaseName !== `exam`);
+      if (resultEl) resultEl.classList.toggle(`hidden`, phaseName !== `results`);
+    }
+
+    function formatClock(sec) {
+      const safe = Math.max(0, Math.floor(sec));
+      const m = Math.floor(safe / 60);
+      const s = safe % 60;
+      return `${String(m).padStart(2, `0`)}:${String(s).padStart(2, `0`)}`;
+    }
+
+    function updateTimerUI() {
+      const timerEl = document.getElementById(`timerDisplay`);
+      if (!timerEl) return;
+      timerEl.textContent = formatClock(appState.secondsLeft);
+      timerEl.classList.remove(`timer-display--warning`, `timer-display--critical`);
+      if (appState.secondsLeft <= 180) {
+        timerEl.classList.add(`timer-display--critical`);
+      } else if (appState.secondsLeft <= 600) {
+        timerEl.classList.add(`timer-display--warning`);
+      }
+    }
+
+    function stopTimer() {
+      if (timerInterval !== null) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    function startTimer() {
+      stopTimer();
+      updateTimerUI();
+      timerInterval = setInterval(function () {
+        if (appState.phase !== `exam`) {
+          stopTimer();
+          return;
+        }
+        appState.secondsLeft = Math.max(0, appState.secondsLeft - 1);
+        appState.elapsedSeconds = TOTAL_SECONDS - appState.secondsLeft;
+        updateTimerUI();
+        if (appState.secondsLeft % 15 === 0) {
+          persistState(true);
+        }
+        if (appState.secondsLeft <= 0) {
+          stopTimer();
+          finalizeExam(`Tiempo agotado (cierre automático)`);
+        }
+      }, 1000);
+    }
+
+    function startExam() {
+      const nameInput = document.getElementById(`studentName`);
+      const idInput = document.getElementById(`studentId`);
+      const groupInput = document.getElementById(`studentGroup`);
+      const errorBox = document.getElementById(`setupError`);
+
+      const nameVal = nameInput ? nameInput.value.trim() : ``;
+      const idVal = idInput ? idInput.value.trim() : ``;
+      const groupVal = groupInput ? groupInput.value.trim() : `PRECEMIG15083 · Nocturna`;
+
+      if (nameVal.length < 3 || idVal.length < 4) {
+        if (errorBox) {
+          errorBox.textContent = `Ingrese su nombre completo y número de documento de identidad antes de iniciar la evaluación.`;
+          errorBox.classList.remove(`hidden`);
+        }
+        return;
+      }
+
+      if (errorBox) errorBox.classList.add(`hidden`);
+
+      appState.student = {
+        name: nameVal,
+        id: idVal,
+        group: groupVal || `PRECEMIG15083 · Nocturna`
+      };
+      appState.phase = `exam`;
+      appState.currentIndex = 0;
+      appState.secondsLeft = TOTAL_SECONDS;
+      appState.elapsedSeconds = 0;
+
+      showPhase(`exam`);
+      renderExamView();
+      startTimer();
+      persistState(true);
+    }
+
+    function renderSelectorGrid() {
+      const grid = document.getElementById(`questionSelectorGrid`);
+      if (!grid) return;
+
+      grid.innerHTML = QUESTIONS.map(function (q, idx) {
+        const isCurrent = idx === appState.currentIndex;
+        const isAnswered = appState.answers[idx] !== null;
+        const isFlagged = appState.flagged[idx];
+        const classes = [`q-node`];
+        if (isAnswered) classes.push(`is-answered`);
+        if (isCurrent) classes.push(`is-current`);
+        if (isFlagged) classes.push(`is-flagged`);
+        return `<button type="button" class="${classes.join(` `)}" onclick="jumpToQuestion(${idx})" aria-label="Ir a pregunta ${idx + 1}" ${isCurrent ? `aria-current="step"` : ``}>${idx + 1}</button>`;
+      }).join(``);
+    }
+
+    function updateProgressBar() {
+      const answeredCount = appState.answers.filter(function (a) { return a !== null; }).length;
+      const pct = Math.round((answeredCount / QUESTIONS.length) * 100);
+      const fill = document.getElementById(`progressFill`);
+      const countLbl = document.getElementById(`answeredCountLabel`);
+      const pctLbl = document.getElementById(`progressPctLabel`);
+      const studentMeta = document.getElementById(`studentSummaryMeta`);
+
+      if (fill) fill.style.width = `${pct}%`;
+      if (countLbl) countLbl.textContent = `${answeredCount} de ${QUESTIONS.length} respondidas`;
+      if (pctLbl) pctLbl.textContent = `${pct}%`;
+      if (studentMeta) studentMeta.textContent = `${appState.student.name} · Doc. ${appState.student.id}`;
+    }
+
+    function renderExamView() {
+      const q = QUESTIONS[appState.currentIndex];
+      if (!q) return;
+
+      const counterEl = document.getElementById(`qCounterLabel`);
+      const stampEl = document.getElementById(`qSectionStamp`);
+      const bodyEl = document.getElementById(`questionBody`);
+      const prevBtn = document.getElementById(`prevBtn`);
+      const nextBtn = document.getElementById(`nextBtn`);
+      const flagBtnText = document.getElementById(`flagBtnText`);
+      const noticeEl = document.getElementById(`submitNotice`);
+      const submitBtn = document.getElementById(`submitExamBtn`);
+
+      if (noticeEl) noticeEl.classList.add(`hidden`);
+      if (submitBtn) {
+        submitBtn.dataset.armed = `false`;
+        submitBtn.textContent = `Enviar y calificar examen`;
+      }
+
+      if (counterEl) counterEl.textContent = `PREGUNTA ${appState.currentIndex + 1} DE ${QUESTIONS.length}`;
+      if (stampEl) {
+        stampEl.textContent = q.type === `mc`
+          ? `${q.section} · ${q.topic}`
+          : `${q.section} · Falso / Verdadero`;
+      }
+
+      if (flagBtnText) {
+        flagBtnText.textContent = appState.flagged[appState.currentIndex] ? `Marcada (quitar)` : `Marcar para revisar`;
+      }
+
+      const selectedIdx = appState.answers[appState.currentIndex];
+
+      if (bodyEl) {
+        const optionsHtml = q.options.map(function (optText, optIdx) {
+          const isSel = selectedIdx === optIdx;
+          const keyBadge = q.type === `mc` ? LETTERS[optIdx] : (optIdx === 0 ? `V` : `F`);
+          return `
+            <button type="button"
+              class="option-btn ${isSel ? `is-selected` : ``}"
+              role="radio"
+              aria-checked="${isSel ? `true` : `false`}"
+              onclick="selectOption(${optIdx})">
+              <span class="option-key">${keyBadge}</span>
+              <span class="option-text">${optText}</span>
+            </button>
+          `;
+        }).join(``);
+
+        bodyEl.innerHTML = `
+          <h2 class="case-title">${q.title}</h2>
+          <div class="case-narrative">${q.context}</div>
+          <p class="question-prompt">${q.prompt}</p>
+          <div class="options-grid" role="radiogroup" aria-label="Opciones de respuesta">
+            ${optionsHtml}
+          </div>
+        `;
+      }
+
+      if (prevBtn) prevBtn.disabled = appState.currentIndex === 0;
+      if (nextBtn) nextBtn.disabled = appState.currentIndex === QUESTIONS.length - 1;
+
+      renderSelectorGrid();
+      updateProgressBar();
+      updateTimerUI();
+    }
+
+    function selectOption(optIdx) {
+      appState.answers[appState.currentIndex] = optIdx;
+      renderExamView();
+      persistState(true);
+    }
+
+    function toggleFlagCurrent() {
+      appState.flagged[appState.currentIndex] = !appState.flagged[appState.currentIndex];
+      renderExamView();
+      persistState(true);
+    }
+
+    function navigateQuestion(delta) {
+      const next = appState.currentIndex + delta;
+      if (next < 0 || next >= QUESTIONS.length) return;
+      appState.currentIndex = next;
+      renderExamView();
+      persistState(false);
+    }
+
+    function jumpToQuestion(idx) {
+      if (idx < 0 || idx >= QUESTIONS.length) return;
+      appState.currentIndex = idx;
+      renderExamView();
+      persistState(false);
+    }
+
+    function handleSubmitClick(btn) {
+      const unanswered = appState.answers.filter(function (a) { return a === null; }).length;
+      const noticeEl = document.getElementById(`submitNotice`);
+
+      if (unanswered > 0 && btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Confirmar envío (${unanswered} sin responder)`;
+        if (noticeEl) {
+          noticeEl.textContent = `Tiene ${unanswered} ${unanswered === 1 ? `pregunta sin responder` : `preguntas sin responder`}. Puede revisarlas en el selector lateral o presionar nuevamente para enviar definitivamente.`;
+          noticeEl.classList.remove(`hidden`);
+        }
+        return;
+      }
+
+      finalizeExam(`Envío voluntario`);
+    }
+
+    function finalizeExam(reason) {
+      stopTimer();
+      appState.phase = `results`;
+      appState.finishReason = reason || `Envío voluntario`;
+      appState.elapsedSeconds = TOTAL_SECONDS - appState.secondsLeft;
+      showPhase(`results`);
+      renderResultsView();
+      persistState(true);
+    }
+
+    function computeEvaluation() {
+      let totalCorrect = 0;
+      let sec1Correct = 0;
+      let sec2Correct = 0;
+
+      const items = QUESTIONS.map(function (q, idx) {
+        const chosenIdx = appState.answers[idx];
+        const isCorrect = chosenIdx === q.correctIndex;
+        if (isCorrect) {
+          totalCorrect++;
+          if (idx < 6) sec1Correct++;
+          else sec2Correct++;
+        }
+        return { q: q, idx: idx, chosenIdx: chosenIdx, isCorrect: isCorrect };
+      });
+
+      const grade = Number((totalCorrect * 0.5).toFixed(1));
+      const weighted20 = Number((grade * 0.2).toFixed(2));
+      const accuracyPct = Math.round((totalCorrect / QUESTIONS.length) * 100);
+      const passed = grade >= 3.0;
+
+      return {
+        items: items,
+        totalCorrect: totalCorrect,
+        sec1Correct: sec1Correct,
+        sec2Correct: sec2Correct,
+        grade: grade,
+        weighted20: weighted20,
+        accuracyPct: accuracyPct,
+        passed: passed
+      };
+    }
+
+    function setReviewFilter(filterKey) {
+      appState.reviewFilter = filterKey;
+      renderResultsView();
+      persistState(false);
+    }
+
+    function renderResultsView() {
+      const stats = computeEvaluation();
+
+      const studentLine = document.getElementById(`resultStudentLine`);
+      const verdictStamp = document.getElementById(`resultVerdictStamp`);
+      const finalGradeEl = document.getElementById(`finalGradeValue`);
+      const gradeDeltaEl = document.getElementById(`finalGradeDelta`);
+      const weightedEl = document.getElementById(`weightedScoreValue`);
+      const hitsEl = document.getElementById(`hitsValue`);
+      const accDeltaEl = document.getElementById(`accuracyDelta`);
+      const timeEl = document.getElementById(`timeSpentValue`);
+      const reasonEl = document.getElementById(`finishReasonLabel`);
+
+      const sec1Bar = document.getElementById(`sec1Bar`);
+      const sec1Text = document.getElementById(`sec1Text`);
+      const sec2Bar = document.getElementById(`sec2Bar`);
+      const sec2Text = document.getElementById(`sec2Text`);
+
+      if (studentLine) {
+        studentLine.textContent = `${appState.student.name} · Doc. ${appState.student.id} · ${appState.student.group}`;
+      }
+      if (verdictStamp) {
+        verdictStamp.textContent = stats.passed ? `Aprobado (≥ 3.0)` : `No aprobado (< 3.0)`;
+        verdictStamp.className = `stamp-tag ${stats.passed ? `stamp-tag--positive` : `stamp-tag--error`}`;
+      }
+      if (finalGradeEl) finalGradeEl.textContent = stats.grade.toFixed(1);
+      if (gradeDeltaEl) {
+        gradeDeltaEl.textContent = stats.passed ? `Desempeño aprobatorio` : `Requiere refuerzo normativo`;
+        gradeDeltaEl.className = `figure-delta ${stats.passed ? `figure-delta--positive` : `figure-delta--error`}`;
+      }
+      if (weightedEl) weightedEl.textContent = stats.weighted20.toFixed(2);
+      if (hitsEl) hitsEl.textContent = `${stats.totalCorrect} / ${QUESTIONS.length}`;
+      if (accDeltaEl) accDeltaEl.textContent = `${stats.accuracyPct}% de efectividad`;
+      if (timeEl) timeEl.textContent = formatClock(appState.elapsedSeconds);
+      if (reasonEl) reasonEl.textContent = appState.finishReason;
+
+      if (sec1Bar) sec1Bar.style.width = `${Math.round((stats.sec1Correct / 6) * 100)}%`;
+      if (sec1Text) sec1Text.textContent = `${stats.sec1Correct} / 6`;
+      if (sec2Bar) sec2Bar.style.width = `${Math.round((stats.sec2Correct / 4) * 100)}%`;
+      if (sec2Text) sec2Text.textContent = `${stats.sec2Correct} / 4`;
+
+      const incorrectCount = QUESTIONS.length - stats.totalCorrect;
+      const allBtn = document.getElementById(`filterAllBtn`);
+      const corBtn = document.getElementById(`filterCorrectBtn`);
+      const incBtn = document.getElementById(`filterIncorrectBtn`);
+
+      if (allBtn) {
+        allBtn.textContent = `Todas (${QUESTIONS.length})`;
+        allBtn.classList.toggle(`is-active`, appState.reviewFilter === `all`);
+      }
+      if (corBtn) {
+        corBtn.textContent = `Correctas (${stats.totalCorrect})`;
+        corBtn.classList.toggle(`is-active`, appState.reviewFilter === `correct`);
+      }
+      if (incBtn) {
+        incBtn.textContent = `Incorrectas (${incorrectCount})`;
+        incBtn.classList.toggle(`is-active`, appState.reviewFilter === `incorrect`);
+      }
+
+      const filteredItems = stats.items.filter(function (item) {
+        if (appState.reviewFilter === `correct`) return item.isCorrect;
+        if (appState.reviewFilter === `incorrect`) return !item.isCorrect;
+        return true;
+      });
+
+      const reviewContainer = document.getElementById(`reviewContainer`);
+      if (!reviewContainer) return;
+
+      if (filteredItems.length === 0) {
+        reviewContainer.innerHTML = `<div class="figure-card"><p style="margin:0;">No hay preguntas en esta categoría de filtro.</p></div>`;
+        return;
+      }
+
+      reviewContainer.innerHTML = filteredItems.map(function (item) {
+        const q = item.q;
+        const formatChoice = function (idxVal) {
+          if (idxVal === null || idxVal === undefined) return `Sin respuesta registrada`;
+          const prefix = q.type === `mc` ? `${LETTERS[idxVal]}) ` : ``;
+          return `${prefix}${q.options[idxVal]}`;
+        };
+        const studentAnswerText = formatChoice(item.chosenIdx);
+        const correctAnswerText = formatChoice(q.correctIndex);
+
+        return `
+          <article class="review-card ${item.isCorrect ? `review-card--correct` : `review-card--incorrect`}">
+            <div class="review-top">
+              <span class="label-caps">${q.section} · ${q.topic}</span>
+              <span class="stamp-tag ${item.isCorrect ? `stamp-tag--positive` : `stamp-tag--error`}">
+                ${item.isCorrect ? `Correcta (+0.5)` : (item.chosenIdx === null ? `Sin responder (0.0)` : `Incorrecta (0.0)`)}
+              </span>
+            </div>
+            <h3 class="case-title">${q.title}</h3>
+            <p style="margin: 0 0 var(--space-sm); color: var(--on-surface-variant);">${q.context}</p>
+            <p style="margin: 0; font-weight: 600;">${q.prompt}</p>
+
+            <div class="answer-comparison">
+              <div>
+                <span class="label-caps" style="display:block; margin-bottom: var(--space-xs);">Su respuesta</span>
+                <span>${studentAnswerText}</span>
+              </div>
+              <div>
+                <span class="label-caps" style="display:block; margin-bottom: var(--space-xs);">Respuesta correcta</span>
+                <strong>${correctAnswerText}</strong>
+              </div>
+            </div>
+
+            <div class="legal-foundation">
+              <span class="legal-citation">${q.citation}</span>
+              <p style="margin:0;">${q.explanation}</p>
+            </div>
+          </article>
+        `;
+      }).join(``);
+    }
+
+    function buildReportText() {
+      const stats = computeEvaluation();
+      const lines = [
+        `TECNOLÓGICO DE ANTIOQUIA - INSTITUCIÓN UNIVERSITARIA`,
+        `FORMATO FO-DOC-115 · EXAMEN FINAL DE DERECHOS ADUANEROS`,
+        `Programa: Negocios Internacionales | Docente: Ezequiel Rentería Mosquera`,
+        `------------------------------------------------------------------------`,
+        `Estudiante: ${appState.student.name}`,
+        `Documento: ${appState.student.id}`,
+        `Grupo: ${appState.student.group}`,
+        `Estado de cierre: ${appState.finishReason}`,
+        `Tiempo empleado: ${formatClock(appState.elapsedSeconds)}`,
+        `Nota definitiva (0.0 - 5.0): ${stats.grade.toFixed(1)} (${stats.passed ? `APROBADO` : `NO APROBADO`})`,
+        `Aporte ponderado (20%): ${stats.weighted20.toFixed(2)} / 1.00 puntos`,
+        `Aciertos totales: ${stats.totalCorrect} / ${QUESTIONS.length} (${stats.accuracyPct}%)`,
+        `Sección I (Casos Prácticos): ${stats.sec1Correct} / 6`,
+        `Sección II (Falso / Verdadero): ${stats.sec2Correct} / 4`,
+        `------------------------------------------------------------------------`,
+        `DESGLOSE Y FUNDAMENTO NORMATIVO:`
+      ];
+
+      stats.items.forEach(function (item) {
+        const q = item.q;
+        const prefixStudent = item.chosenIdx === null ? `-` : (q.type === `mc` ? LETTERS[item.chosenIdx] : q.options[item.chosenIdx]);
+        const prefixCorrect = q.type === `mc` ? LETTERS[q.correctIndex] : q.options[q.correctIndex];
+        lines.push(``);
+        lines.push(`${q.title} [${item.isCorrect ? `CORRECTA` : `INCORRECTA`}]`);
+        lines.push(`  Respuesta estudiante: ${item.chosenIdx === null ? `Sin responder` : `${prefixStudent}: ${q.options[item.chosenIdx]}`}`);
+        lines.push(`  Respuesta correcta:   ${prefixCorrect}: ${q.options[q.correctIndex]}`);
+        lines.push(`  Fundamento: ${q.citation} — ${q.explanation}`);
+      });
+
+      return lines.join(`\n`);
+    }
+
+    function downloadReport() {
+      const content = buildReportText();
+      const safeId = (appState.student.id || `estudiante`).replace(/[^a-zA-Z0-9_-]/g, ``);
+      const filename = `acta_derechos_aduaneros_${safeId}.txt`;
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: content,
+          contentType: `text/plain`,
+          encoding: `UTF-8`,
+          filename: filename
+        });
+        return;
+      }
+
+      const blob = new Blob([content], { type: `text/plain;charset=utf-8` });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement(`a`);
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function resetExam(btn) {
+      if (btn && btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Confirmar nuevo intento`;
+        return;
+      }
+      stopTimer();
+      appState = {
+        phase: `setup`,
+        student: {
+          name: appState.student.name,
+          id: appState.student.id,
+          group: appState.student.group
+        },
+        currentIndex: 0,
+        answers: new Array(QUESTIONS.length).fill(null),
+        flagged: new Array(QUESTIONS.length).fill(false),
+        secondsLeft: TOTAL_SECONDS,
+        elapsedSeconds: 0,
+        finishReason: `Envío voluntario`,
+        reviewFilter: `all`
+      };
+      if (btn) {
+        btn.dataset.armed = `false`;
+        btn.textContent = `Presentar nuevo intento`;
+      }
+      const nameInput = document.getElementById(`studentName`);
+      const idInput = document.getElementById(`studentId`);
+      const groupInput = document.getElementById(`studentGroup`);
+      if (nameInput) nameInput.value = appState.student.name;
+      if (idInput) idInput.value = appState.student.id;
+      if (groupInput) groupInput.value = appState.student.group;
+
+      showPhase(`setup`);
+      persistState(true);
+    }
+
+    async function initApp() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object` && Array.isArray(saved.answers) && saved.answers.length === QUESTIONS.length) {
+            appState = Object.assign({}, appState, saved);
+          }
+        }
+      } catch (err) {
+        // Proceed with fresh default state
+      }
+
+      const nameInput = document.getElementById(`studentName`);
+      const idInput = document.getElementById(`studentId`);
+      const groupInput = document.getElementById(`studentGroup`);
+      if (nameInput && appState.student.name) nameInput.value = appState.student.name;
+      if (idInput && appState.student.id) idInput.value = appState.student.id;
+      if (groupInput && appState.student.group) groupInput.value = appState.student.group;
+
+      if (appState.phase === `exam`) {
+        showPhase(`exam`);
+        renderExamView();
+        startTimer();
+      } else if (appState.phase === `results`) {
+        showPhase(`results`);
+        renderResultsView();
+      } else {
+        showPhase(`setup`);
+      }
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
